@@ -19,7 +19,7 @@ Config.DEBUG.LEVEL_4 = true;
 // example of how you can configure your own language sets
 // you can use the AppConfig class or build something similar into your own framework
 //import { AppConfig } from './app/frameworks/sample/services/app-config';
-import { MultilingualService } from './app/frameworks/i18n/services/multilingual.service';
+//import { MultilingualService } from './app/frameworks/i18n/services/multilingual.service';
 //MultilingualService.SUPPORTED_LANGUAGES = AppConfig.SUPPORTED_LANGUAGES;
 
 // app

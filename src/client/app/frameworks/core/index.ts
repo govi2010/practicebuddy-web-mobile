@@ -9,7 +9,7 @@ export * from './decorators/base.component';
 // interfaces
 export * from './interfaces/iconsole';
 export * from './interfaces/iwindow';
-export * from './interfaces/ilang';
+//export * from './interfaces/ilang';
 
 // services
 export * from './services/console.service';

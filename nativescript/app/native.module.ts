@@ -9,7 +9,7 @@ import { RouterExtensions as TNSRouterExtensions } from 'nativescript-angular/ro
 import { NgModule } from '@angular/core';
 
 // libs
-import {TNSFontIconService, TNSFontIconPipe, TNSFontIconPurePipe} from 'nativescript-ng2-fonticon';
+import {TNSFontIconModule, TNSFontIconService, TNSFontIconPipe, TNSFontIconPurePipe} from 'nativescript-ng2-fonticon';
 
 // app
 import { WindowService, ConsoleService, RouterExtensions } from './app/frameworks/core/index';
@@ -33,11 +33,14 @@ import { CoreModule } from './app/frameworks/core/core.module';
     NativeScriptModule,
     NativeScriptFormsModule,
     NativeScriptHttpModule,
-    NativeScriptRouterModule
+    NativeScriptRouterModule,
+    TNSFontIconModule.forRoot({
+            'fa': 'fonts/font-awesome.css'
+        })
   ],
   declarations: [
-    TNSFontIconPipe,
-    TNSFontIconPurePipe,
+    //TNSFontIconPipe,
+    //TNSFontIconPurePipe,
     ENTRY_COMPONENTS
   ],
   exports: [
@@ -56,7 +59,7 @@ class ComponentModule { }
     ]),   
     ComponentModule,
     PracticeBuddyModule.forRoot([
-      TOKENS_NATIVE,
+      TOKENS_NATIVE/*,
       {
         provide: TNSFontIconService,
         useFactory: () => {
@@ -65,7 +68,7 @@ class ComponentModule { }
             'ion': 'fonts/ionicons.css'
           });
         }
-      }
+      }*/
     ]),
     NativeScriptRouterModule.forRoot(<any>routes)
   ],
@@ -73,7 +76,8 @@ class ComponentModule { }
     NSAppComponent
   ],
   providers: [
-    { provide: RouterExtensions, useClass: TNSRouterExtensions }
+    { provide: RouterExtensions, useClass: TNSRouterExtensions },
+    
   ],
   bootstrap: [NSAppComponent]
 })
