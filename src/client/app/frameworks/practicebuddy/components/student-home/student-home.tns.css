@@ -1,0 +1,44 @@
+Label{
+    margin:10
+}
+.orange {
+    background-color: #F2B208;
+}
+.btnRecord {
+    height: 80;
+    width: 80;
+    font-size: 30;
+    text-align: center;
+    color: #fff;
+    border-radius: 40;
+    horizontal-align: center;
+    vertical-align: bottom;
+}
+.green {
+    background-color: #6DE9C0;
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1, 1);}
+	50% { transform: scale(1.15, 1.15);}
+	100% { transform: scale(1, 1);}
+}
+
+.btnTimer {
+    border-radius: 5;
+    padding: 5;
+    font-size: 20;
+    color: #FFF;
+    height: 50;
+}
+.blue{
+    background-color: #1598F6;    
+}
+.timer {
+    font-weight: bold;
+    font-size: 34;
+    color: #1598F6;
+}

@@ -1,0 +1,35 @@
+<div class="login-page" [class.dark]="!isLoggingIn">
+  <header>
+    <span class="avatar">
+      <img src="./assets/images/logo.png" alt="PracticeBuddy logo">
+    </span>
+  </header>
+
+  <h1>PracticeBuddy</h1>
+  <form>
+    <div>
+      <label>
+        Email:
+        <input type="email" name="email" autocapitalize="off" autocorrect="off" [(ngModel)]="user.email" [disabled]="isAuthenticating">
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Password:
+        <input type="password" name="password" [(ngModel)]="user.password" [disabled]="isAuthenticating">
+      </label>
+    </div>
+
+    <div class="center">
+      <button class="big" (click)="submit()" [disabled]="isAuthenticating">
+        <img [hidden]="!isAuthenticating" src="./assets/images/loading.gif">
+        <span [hidden]="isAuthenticating">{{ isLoggingIn ? 'Login' : 'Register' }}</span>
+      </button>
+      <button class="plain" (click)="toggleDisplay()" [disabled]="isAuthenticating">
+        <span>{{ isLoggingIn ? 'Sign Up' : 'Back to Login' }}</span>
+      </button>
+        <div class="link" (click)="forgotPassword()">Forgot my password</div>
+    </div>
+  </form>
+</div>

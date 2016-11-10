@@ -1,0 +1,20 @@
+<ActionBar title="Welcome, {{ name }}"></ActionBar>
+    
+    <ScrollView>
+            <StackLayout horizontalAlignment="center" class="card">
+                <Label horizontalAlignment="center" class="header" text="Hello, {{ name }}"></Label>
+                <Image src="~/assets/images/{{instrument}}.png" height="50"></Image>
+                <Label textWrap="true" horizontalAlignment="center" class="header" text="You have completed {{practicescompleted}} out of {{practicesrequired}} required practices." ></Label>
+                <Label horizontalAlignment="center" textWrap="true" text="You're working towards: {{reward}}"></Label>
+                <Label horizontalAlignment="center" text="You're scheduled to practice for {{practicelength}} minutes."></Label>
+                <Label horizontalAlignment="center" text="Ready to Practice? Let's go!"></Label>
+                <GridLayout horizontalAlignment="center" columns="auto,auto,auto" rows="*">
+                    <Label col="0" horizontalAlignment="right" [text]="minutes$ | async" class="timer"></Label>  
+                    <Label col="1" horizontalAlignment="center" text=":" class="timer"></Label>             
+                    <Label col="2" horizontalAlignment="left" [text]="seconds$ | async" class="timer"></Label>
+                </GridLayout>  
+                <Button [text]="'fa-microphone' | fonticon" [class]="isRecording ? 'green fa fa-microphone btnRecord' : 'orange fa fa-microphone btnRecord'"  (tap)="toggleRecord()"></Button>
+                <Button [class]="isTiming ? 'green btnTimer' : 'blue btnTimer'" [text]="isTiming ? 'Finished!' : 'Start Practicing!'" (tap)="toggleTimer()"></Button>        
+            </StackLayout>
+    </ScrollView>
+  

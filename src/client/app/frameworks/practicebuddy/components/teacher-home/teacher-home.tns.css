@@ -1,0 +1,9 @@
+.studentCard {
+    margin: 5;
+    color: black;
+    vertical-align:top;
+    background-color: #FEA30C;
+    border-width: 1;
+    border-radius: 5;
+    border-color: #FEA30C;
+}

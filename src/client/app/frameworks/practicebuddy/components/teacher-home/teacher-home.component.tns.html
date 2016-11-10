@@ -1,0 +1,27 @@
+<ActionBar title="Teachers"></ActionBar>
+
+<StackLayout>    
+    <ScrollView>
+        <StackLayout class="card">
+          <StackLayout>
+            
+            <StackLayout>          
+              <Label class="header" text="Welcome!"></Label>          
+              <Label textWrap="true" text="If you see names listed in the cards below, you have students who have listed you as their teacher! Click a card to get student practice information."></Label>
+            </StackLayout>
+           	
+             <WrapLayout horizontalAlignment="center">
+              <StackLayout class="studentCard" width="45%" *ngFor="let student of (teacherstudents$ | async)">
+                <StackLayout horizontalAlignment="center" (tap)="goToTeacherStudentHome(student)">
+                  <Label horizontalAlignment="center" class="header" [text]="student.Name"></Label>
+                  <Image [src]="'~/assets/images/'+student.Instrument+'.png'" height="50"></Image>
+                  <Label horizontalAlignment="center" textWrap="true" [text]="'Completed '+student.PracticesCompleted+' of '+student.PracticesRequired+' practices'"></Label>
+                  <Label horizontalAlignment="center" textWrap="true" [text]="'Working towards: '+student.Reward"></Label>
+                </StackLayout>
+              </StackLayout>
+            </WrapLayout>
+            
+          </StackLayout>
+      </StackLayout>
+    </ScrollView> 
+ </StackLayout>

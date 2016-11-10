@@ -1,0 +1,49 @@
+<ActionBar title="{{ name }}'s Preferences" icon=""></ActionBar>
+
+<ScrollView>
+
+	<StackLayout #container class="card">
+
+		<Label class="label" text="Student's Name"></Label>
+
+		<TextField #studentname hint="Student's Name" autocorrect="false" autocapitalizationType="none" [(ngModel)]="name"></TextField>
+
+		<StackLayout class="gray">
+
+			<Label class="label" text="Number of Practices Required"></Label>
+
+			<Label #practicesrequiredlabel horizontalAlignment="center" class="label" [text]="practicesrequired"></Label>
+
+			<Slider class="label" #practicesrequiredslider [(ngModel)]="practicesrequired"></Slider>
+
+		</StackLayout>
+
+		<StackLayout class="gray">
+
+			<Label class="label" text="Length of Practices in Minutes"></Label>
+
+			<Label horizontalAlignment="center" class="label" [text]="practicelength"></Label>
+
+			<Slider class="label" [(ngModel)]="practicelength"></Slider>
+
+		</StackLayout>
+
+		<Label class="label" text="Reward for Practice Sequence Completion"></Label>
+
+		<TextField hint="Reward" [(ngModel)]="reward" autocorrect="false" autocapitalizationType="none"></TextField>
+
+		<Label class="label" text="Optional Password"></Label>
+
+		<TextField secure="true" [(ngModel)]="adminpassword" hint="Admin Password" autocorrect="false" autocapitalizationType="none"></TextField>
+
+		<Label class="label" text="Optional Teacher Email"></Label>
+
+		<TextField [(ngModel)]="teacheremail" hint="Teacher's Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+
+		<ListPicker #instrumentListPicker [(ngModel)]="selectedInstrumentIndex" (selectedIndexChange)="selectedIndexChanged(instrumentListPicker)" [items]="instruments"></ListPicker>
+
+		<Button [text]="'Save'" class="submit-button white-text" (tap)="submit()"></Button>
+
+	</StackLayout>
+
+</ScrollView>

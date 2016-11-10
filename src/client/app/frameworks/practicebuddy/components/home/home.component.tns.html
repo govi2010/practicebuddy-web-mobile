@@ -1,0 +1,44 @@
+<ActionBar title="Practice Buddy"></ActionBar>
+
+<StackLayout>
+ 
+   <GridLayout rows="*,auto,auto">
+     
+    <ScrollView>
+        <StackLayout class="card">
+          <StackLayout>
+            
+            <StackLayout>          
+              <Label class="header" text="Welcome!"></Label>          
+              <Label textWrap="true" text="Practice Buddy helps students become better musicians, and music teachers mentor their students."></Label>
+              <Label *ngIf="students$.length==0" style="font-weight: bold" textWrap="true" text="Looks like there are no students associated to this account."></Label>
+              <Button *ngIf="students$.length==0" class="white-text" text="Add music students to this account" (tap)="addStudent()"></Button>
+            </StackLayout>
+           	
+             <WrapLayout horizontalAlignment="center">
+              <StackLayout class="studentCard" width="45%" *ngFor="let student of (students$ | async)">
+                <StackLayout horizontalAlignment="center" (tap)="goToStudentHome(student.id)">
+                  <GridLayout columns="*,*">
+                    <Button col="0" [text]="'fa-pencil' | fonticon" class="fa action-btn" (tap)="editStudent(student.id)"></Button>
+                    <Button col="1" [text]="'fa-trash' | fonticon" class="fa action-btn" (tap)="deleteStudent(student)"></Button>     
+                  </GridLayout>
+                  <Label horizontalAlignment="center" class="header" [text]="student.Name"></Label>
+                  <Image [src]="'~/assets/images/'+student.Instrument+'.png'" height="50"></Image>
+                  <Label horizontalAlignment="center" textWrap="true" [text]="'Working towards: '+student.Reward"></Label>
+                </StackLayout>
+              </StackLayout>
+            </WrapLayout>
+            
+          </StackLayout>
+      </StackLayout>
+    </ScrollView>
+      
+      <Button row="1" #btna (tap)="addStudent()" [@state]=" isOpen ? 'activebtna' : 'inactivebtn' " [text]="'fa-plus' | fonticon" class="speed-button btna fa"></Button>
+      <Button row="1" #btnd (tap)="goToTeachersHome()" [@state]=" isOpen ? 'activebtnb' : 'inactivebtn' " [text]="'fa-mortar-board' | fonticon" class="speed-button btnb fa"></Button>
+      <Button row="1" #btne (tap)="logout()" [@state]=" isOpen ? 'activebtnc' : 'inactivebtn' " [text]="'fa-sign-out' | fonticon" class="speed-button btne fa"></Button>
+     
+      <Fab row="1" #fab [@state]=" isOpen ? 'active' : 'inactive' " (tap)="onTap()" icon="./images/menu.png" rippleColor="#f1f1f1" class="fab-button"></Fab>
+    
+    </GridLayout> 
+ 
+ </StackLayout>
